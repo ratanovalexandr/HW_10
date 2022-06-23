@@ -1,22 +1,27 @@
-function sumInput() {
+function askInput() {
 
-    let numbers = [];
+    let texts = [];
   
-    while (true) {
+    while(true) {
   
-      let value = prompt("Введите число", 0);
+      let message = prompt("Enter yuor texts");
+       
+      if (message === null || message === "") break;
   
-     
-      if (value === "" || value === null || !isFinite(value)) break;
-  
-      numbers.push(+value);
+      texts.push(message);
     }
-  
-    let sum = 0;
-    for (let number of numbers) {
-      sum += number;
-    }
-    return sum;
+
+  const upperCasedArray = texts.map((string) =>{
+    return `${string[0].toUpperCase()}${string.slice(1)}`
+    console.log(upperCasedArray());
+  });
+
+  const sortedArray = upperCasedArray.sort((first, second) =>{
+    return first.length - second.length;
+  });
+    return sortedArray;
+
   }
   
-  alert( sumInput() );
+  askInput();
+  console.log(askInput());
